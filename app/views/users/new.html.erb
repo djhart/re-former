@@ -14,11 +14,19 @@
     <!--    <input type="submit" value="Submit">-->
     <!--  </accept-charset>-->
     <!--</form>-->
-    <%= form_tag('/users#create', method: :post) %>
-    Username: <%= text_field_tag 'username' %><br>
-    Email: <%= email_field_tag 'email'%><br>
-    Password: <%= password_field_tag 'password' %><br>
-    <%= submit_tag %>
     
+    
+    <!--<%= form_tag('/users#create', method: :post) %>-->
+    <!--Username: <%= text_field_tag 'username' %><br>-->
+    <!--Email: <%= email_field_tag 'email'%><br>-->
+    <!--Password: <%= password_field_tag 'password' %><br>-->
+    <!--<%= submit_tag %>-->
+    
+    <%= form_for :user, url: '/users#create' do |u| %>
+      <%= u.text_field :username, placeholder: "Username" %><br><br>
+      <%= u.email_field :email, placeholder: "Email" %><br><br>
+      <%= u.password_field :password, placeholder: "Password" %><br><br>
+      <%= u.submit %>
+    <% end %>
   </body>
 </html>
